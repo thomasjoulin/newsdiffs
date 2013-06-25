@@ -104,7 +104,7 @@ def get_articles(source=None, distance=0):
     return articles
 
 
-SOURCES = '''lemonde.fr'''.split()
+SOURCES = '''lemonde.fr liberation.fr'''.split()
 
 @cache_page(60 * 30)  #30 minute cache
 def browse(request, source=''):
