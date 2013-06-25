@@ -18,9 +18,12 @@ class LeMondeParser(BaseParser):
         self.title = soup.find('meta', attrs={'property':'og:title'}).get('content')
         
         author = soup.find('span', attrs={'itemprop':'author'})
+        publisher = soup.find('span', attrs={'itemprop':'Publisher'}).get('data-source')
         
         if author:
             self.byline = author.getText()
+        elif publisher:
+            self.byline = publisher
         else:
             self.byline = ''
 
