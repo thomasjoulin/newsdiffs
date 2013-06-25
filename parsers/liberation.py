@@ -8,11 +8,16 @@ class LiberationParser(BaseParser):
     domains = ['www.liberation.fr']
 
     feeder_pages = ['http://www.liberation.fr/']
-    feeder_pat  = '^http://www.liberation.fr/[a-z]+/\d{4}/\d{2}/\d{2}'
+    feeder_pat  = '^http://www.liberation.fr/[a-z]+/\d{4}/\d{2}/\d{2}/[^commentaires]'
 
     def _parse(self, html):
         soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES, fromEncoding='utf-8')
 
+        try:
+            p_tags = soup.find('div', attrs={'itemprop':'articleBody'}).findAll('p')
+        except AttributeError:
+            self.real_article = False
+            return
         self.meta = soup.findAll('meta')
 
         self.title = soup.find('meta', attrs={'property':'og:title'}).get('content')
@@ -35,7 +40,6 @@ class LiberationParser(BaseParser):
         else:
             description_text = ''
         
-        p_tags = soup.find('div', attrs={'itemprop':'articleBody'}).findAll('p')
         main_body = '\n\n'.join([p.getText() for p in p_tags])
         
         self.body = '\n'.join([description_text, main_body,])
