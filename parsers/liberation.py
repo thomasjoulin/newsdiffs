@@ -22,10 +22,10 @@ class LiberationParser(BaseParser):
 
         self.title = soup.find('meta', attrs={'property':'og:title'}).get('content')
         
-        author = soup.find('div', attrs={'itemprop':'author'}).find('strong')
+        authors = soup.find('div', attrs={'itemprop':'author'}).findAll('strong')
         
-        if author:
-            self.byline = author.getText()
+        if authors:
+            self.byline = ', '.join([author.getText() for author in authors])
         else:
             self.byline = ''
 
