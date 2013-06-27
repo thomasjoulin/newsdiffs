@@ -26,8 +26,7 @@ class LesEchosParser(BaseParser):
 
         self.date = ''
         
-        # description = soup.find('div', attrs={'class':re.compile(r'\beditorial\b')}).childGenerator()
-        description_text = ''#'\n'.join([p.string for p in description if p])
+        chapeau = ''
         
         article = soup.find('div', attrs={'id':'article'})
         
@@ -35,5 +34,5 @@ class LesEchosParser(BaseParser):
         
         main_body = '\n\n'.join([p.getText() for p in article_tags if p.parent.name == 'btn_impr'])
         
-        self.body = '\n'.join([description_text, main_body])
+        self.body = '\n'.join([chapeau, main_body])
 

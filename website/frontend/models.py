@@ -17,9 +17,10 @@ def strip_prefix(string, prefix):
         string = string[len(prefix):]
     return string
 
-PublicationDict = {'www.lemonde.fr': 'LeMonde',
+PublicationDict = {'www.lemonde.fr': 'Le Monde',
                    'www.liberation.fr': 'Liberation',
-                   'www.lefigaro.fr': 'LeFigaro',
+                   'www.lefigaro.fr': 'Le Figaro',
+                   'www.lesechos.fr': 'Les Echos',
                    }
 
 ancient = datetime(1901, 1, 1)
