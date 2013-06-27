@@ -11,6 +11,7 @@ parsers = """
 lemonde.LeMondeParser
 liberation.LiberationParser
 lefigaro.LeFigaroParser
+lesechos.LesEchosParser
 """.split()
 
 parser_dict = {}
