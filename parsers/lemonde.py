@@ -1,6 +1,7 @@
 from baseparser import BaseParser
 from BeautifulSoup import BeautifulSoup
 from datetime import datetime
+import re
 
 DATE_FORMAT = '%B %d, %Y at %l:%M%P EDT'
 
@@ -12,6 +13,9 @@ class LeMondeParser(BaseParser):
 
     def _parse(self, html):
         soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES, fromEncoding='utf-8')
+
+        [script.extract() for script in soup.findAll('script')]
+        [portfolio.extract() for portfolio in soup.findAll('section', attrs={'class':re.compile(r"\bportfolio\b")})]
 
         self.meta = soup.findAll('meta')
 
