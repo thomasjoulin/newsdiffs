@@ -21,7 +21,8 @@ PublicationDict = {'www.lemonde.fr': 'Le Monde',
                    'www.liberation.fr': 'Liberation',
                    'www.lefigaro.fr': 'Le Figaro',
                    'www.lesechos.fr': 'Les Echos',
-                   'www.leparisien.fr': 'Les Parisien',
+                   'www.leparisien.fr': 'Le Parisien',
+                   'www.atlantico.fr': 'Atlantico',
                    }
 
 ancient = datetime(1901, 1, 1)

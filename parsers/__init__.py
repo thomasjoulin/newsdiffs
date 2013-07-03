@@ -13,6 +13,7 @@ liberation.LiberationParser
 lefigaro.LeFigaroParser
 lesechos.LesEchosParser
 leparisien.LeParisienParser
+atlantico.AtlanticoParser
 """.split()
 
 parser_dict = {}
