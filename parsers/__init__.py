@@ -12,6 +12,7 @@ lemonde.LeMondeParser
 liberation.LiberationParser
 lefigaro.LeFigaroParser
 lesechos.LesEchosParser
+leparisien.LeParisienParser
 """.split()
 
 parser_dict = {}
