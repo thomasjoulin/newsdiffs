@@ -69,14 +69,9 @@
           <a class="brand" href="{% url 'root' %}">NewsDiffs</a>
           <!--<div class="nav-collapse">-->
             <ul class="nav">
-              <li {% block active_front %}{% endblock %}><a href="{% url 'root' %}">Home</a></li>
-              <li {% block active_about %}{% endblock %}><a href="{% url 'about' %}">About</a></li>
-              <li {% block active_browse %}{% endblock %}><a href="{% url 'browse' %}">Browse</a></li>
-              <li {% block active_examples %}{% endblock %}><a href="{% url 'examples' %}">Highlights</a></li>
-              <li {% block active_press %}{% endblock %}><a href="{% url 'press' %}">Press</a></li>
-              <li {% block active_subscribe %}{% endblock %}><a href="{% url 'subscribe' %}">Subscribe</a></li>
-              <li {% block active_contact %}{% endblock %}><a href="{% url 'contact' %}">Contact</a></li>
-
+              <li {% block active_front %}{% endblock %}><a href="{% url 'root' %}">Accueil</a></li>
+              <li {% block active_browse %}{% endblock %}><a href="{% url 'browse' %}">Parcourir</a></li>
+              <li {% block active_about %}{% endblock %}><a href="{% url 'about' %}">A propos</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -88,7 +83,7 @@
 <hr>
  {% block footer %} 
 	<footer>
-        <p>&copy; <a href="{% url 'contact' %}">NewsDiffs</a> 2012 | <a href="http://twitter.com/newsdiffs">@newsdiffs</a> | <a href="{% url 'subscribe' %}">Subscribe</a> </p>
+        <p><a href="http://twitter.com/newsdiffs_fr">@newsdiffs_fr</a></p>
         </footer>
 {% endblock footer %}
     </div>
