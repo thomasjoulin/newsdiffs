@@ -29,6 +29,12 @@ class AtlanticoParser(BaseParser):
         except AttributeError:
             self.byline = ''
 
+        try:
+            p_tags = soup.find('div', attrs={'id':'content-body'}).findAll('p')
+        except AttributeError:
+            self.real_article = False
+            return
+
         datestr = soup.find('div', attrs={'id':'content'}).find('div', attrs={'class':'metas'}).getText()
         datestr = datestr.replace(u'Publi\xe9 le ', '')
         dateComponents = datestr.split(' ')
@@ -38,7 +44,6 @@ class AtlanticoParser(BaseParser):
         
         chapo = soup.find('p', attrs={'class':re.compile(r"\bchapo\b")}).getText()
         
-        p_tags = soup.find('div', attrs={'id':'content-body'}).findAll('p')
         main_body = '\n\n'.join([p.getText() for p in p_tags])
         
         self.body = '\n\n'.join([chapo, main_body])
